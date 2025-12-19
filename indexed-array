@@ -1,0 +1,32 @@
+#!/bin/bash
+
+arr=(Akash  krishna  uddhav  sunanda)
+
+# access value at index 1
+echo "idx : 1 = ${arr[1]}"
+
+echo -e "\n"
+
+# iterate on the arr
+for i in "${arr[@]}"; do
+        echo "Value : $i"
+done
+
+echo -e "\n"
+
+# iterate with index + value
+for ((i=0; i<4; i++)); do
+        echo "idx : $i = ${arr[i]}"
+done
+
+echo -e "\n"
+
+#copy the arr and then append new thing
+second_array=( "${arr[@]}" AKASH UDDHAV SONAR)
+second_array+=(SUNANDA KRISHAN)
+
+# now iterate on the new array with length (i.e #)
+for ((i=0; i<${#second_array[@]}; i++)); do
+        echo "idx : $i = ${second_array[i]}"
+done
+

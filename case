@@ -1,0 +1,19 @@
+#!/bin/bash
+
+arg=$1
+
+case "$arg" in
+	akash)
+		echo "Hi small case $arg"
+		;;
+	Akash)
+		echo "Hi big case $arg"
+		;;
+	Sonar)
+		echo "Here is your surname $arg"
+		;;
+	*)
+		echo "Invalid arg :("
+		;;
+		
+esac
