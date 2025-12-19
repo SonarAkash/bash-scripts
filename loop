@@ -1,0 +1,16 @@
+#!/bin/bash
+
+for thing in foo bar baz bat; do
+	echo "thing is ${thing}"
+done
+
+echo "printing even odd from (0...15)"
+
+max=16
+for ((i=0; i<max; i++)); do
+	if((i% 2 == 0)) then
+		echo "i : $i is even"
+	else 
+		echo "i : $i is odd"
+	fi
+done

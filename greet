@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ -n "$1" ]]; then
+	name="$1"
+else
+	read -p "Enter you name plz : " name
+fi
+
+echo "Hi $name what's popping !"

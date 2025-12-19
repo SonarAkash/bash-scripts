@@ -1,0 +1,17 @@
+#!/bin/bash
+
+name=None
+if [[ -n "$1" ]]; then
+	name=$1
+else 
+	read -p "Plz enter your name " name
+
+fi
+
+echo "Your name is : $name"
+
+
+echo "now reading input"
+
+read -p "Enter a num : " num
+echo "Your entered $num"

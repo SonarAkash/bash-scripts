@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+greet(){
+	local name="$1"
+	echo "Hi $name ! how are you ?"
+	return 0
+}
+
+for name in "$@"; do
+	greet "$name"
+done

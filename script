@@ -1,0 +1,8 @@
+#!/bin/bash
+
+name=Akash
+system=windows
+
+echo "Hi ${name} how are you ! and your system is ${system}"
+paths=$(echo $PATH | tr : "\n")
+echo "All the path are $paths"
