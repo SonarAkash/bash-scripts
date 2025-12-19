@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# IFS is a special bash variable that is use to split arrays
+
+array=(AKASH UDDHAV SONAR)
+
+(
+	# this '()' is called a subshell, we use it so that the new 
+	# value of IFS is only used inside this shell and don't
+	# cause problemm to other
+	# Note : we have to use * and not @ to print the array
+	# because IFS is applies to *
+	
+	# by default IFS is set to space, tab i.e blank characters.
+
+	IFS=,
+	echo "array : ${array[*]}"
+)
