@@ -30,3 +30,6 @@ for ((i=0; i<${#second_array[@]}; i++)); do
         echo "idx : $i = ${second_array[i]}"
 done
 
+# print the array
+echo "array : ${second_array[@]}"
+
