@@ -1,4 +1,27 @@
 #!/bin/bash
 
-declare -A array
-echo $?
+declare -A arr
+
+arr[name]=Akash
+arr[middle]=Uddhav
+arr[surname]=Sonar
+
+# print middle_name
+echo "middle name : ${arr[middle]}"
+
+echo -e "\n"
+
+# loop over values
+for value in "${arr[@]}"; do
+	echo "value : $value"
+done
+
+echo -e "\n"
+
+# loop over keys
+# note : when working with associative  array if u just pass key in ${arr[key]}
+# it will literally look for key, so we need to tell bash to look for value
+# inside variable key, thus we use $key
+for key in "${!arr[@]}"; do
+	echo "key = $key, value = ${arr[$key]}"
+done
