@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+# cmd substitution helps to execute a cmd and then it's ouput can be
+# substituted as the input/args for the outer cmd
+
+echo "$(echo $(whoami))"
+
+name=Akash
+# here if we don't put {} then shell stops at '$#' and since it's the special character
+# used to return the positional args it return the number let's  say 3 (if positional parameters it set to 3) then the whole 
+# thing becomes $#name -> 3name and it's printed
+echo "length of name is : $#name"
+
+
+# This below one is correct use of length operator
+
+echo "length of name is : ${#name}"
+
