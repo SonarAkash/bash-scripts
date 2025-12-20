@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+# 'cut' commands is used to split input based on a delimiter and
+# we can also extract any fileds after splitting
+
+# here we read from a file-like object (process substitution) and redirect the file OR 'cut' command  reads from this file
+# and split the string on delimeter ';' and extracted 2nd field i.e 'HELLO WORLD' and redirected the output to a file.
+
+cut -d ';' -f 2 < <(echo "hello world;HELLO WORLD;hey there;HEY THERE") > usefull_commands_output.txt
+
+
+# 'tr' command is used to transform a character to another character
+
+# here we use here-string to read stdin from the variable 'string' and feed 
+# the content to command 'tr'
+
+string="hello world;HELLO WORLD;hey there;HEY THERE"
+tr ';' '\n' <<< "$string"
