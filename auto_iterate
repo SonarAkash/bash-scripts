@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# A great thing in bash is that after taking positional parameters
+# and when you have to iterate on them, you don't have to use 'item in @args' because 
+# bash will iterate on the args (if given by user) automatically, so using @args is optional
+
+args=("$@")
+
+for item; do
+	echo "item : $item"
+done
