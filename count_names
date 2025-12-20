@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+
+# different way's to read and count names
+
+echo -e "-----1----- \n"
+
+# 1) here string (To read a data from a var we use here string)
+
+count=0
+names=$(grep a random_names)
+while read name; do 
+	((count++))
+done <<< "$names" 
+echo -e "Total count : $count \n"
+
+echo -e "-----2----- \n"
+
+# 2) streamline the read using pipe operator |
+# But there is a catch -> the second cmd is executing in different shell
+# so the incremented count value is disappeared when the shell closes
+
+count=0
+grep a random_names | while read name; do
+	((count++))
+done
+echo "Total count : $count"
+
+
+echo -e "-----3----- \n"
+
+# 3) now we use process substitution to do the same thing,
+# here the syntax <(...) allows the process's output to be kinda
+# treated as a file, which then the while loop can read in streamline fashion
+
+count=0
+while read name; do
+	((count++))
+done < <(grep a random_names)
+echo "Total count : $count"
