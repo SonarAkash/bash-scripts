@@ -1,0 +1,18 @@
+#!/bin/bash
+
+
+a=3
+# -e is used to allow \n to be treated as newline character
+echo -e "3 power 5 : $((a ** 5)) \n"
+
+
+
+while (( a <= 10)); do
+	echo "a : $a"
+	if ((a % 2 == 0)); then
+		echo "$a is even"
+	else 
+		echo "$a is odd"
+	fi
+	((a++))
+done
