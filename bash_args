@@ -1,0 +1,5 @@
+bash takes some args to check the script
+1) bash -n script -> -n checks for syntax or if there are any erros
+2) bash -x script -> -x set's the script in debug mode
+3) bash -u script -> -u check's for undefined vars
+3) shellcheck script -> same as -n but more detailed
