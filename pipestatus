@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+# To get the exit code of the last cmd, we use $?
+# But what if we wanna know all the status code of each 
+# cmd in pipes. Because $? will only give the status
+# code of the last cmd in the pipe. Thus to get the code
+# of all cmds in pipe we use PIPESTATUS	
+
+
+cat fake.txt | tr ',' 'A' | wc -w
+
+echo "Status code of all the cmds in pipe : ${PIPESTATUS[*]}"
