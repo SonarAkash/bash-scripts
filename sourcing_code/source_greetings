@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# This syntax is same as 'import' in java
+source ./greetings
+
+names=(Akash Uddhav Sunanda Krishna)
+counter=0
+for name in "${names[@]}"; do
+	if ((counter % 2 == 0)); then
+		say_hello $name
+	else
+		say_hi $name
+	fi
+	((counter++))
+done
+	

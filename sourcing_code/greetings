@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# These two functions will be sourced into another script
+# this sourcing is same as importing this file in another one in java
+
+
+say_hello(){
+	echo "Hello : $1"
+}
+
+say_hi(){
+	echo "Hi : $1"
+}
+
+
+# One advanced mechanisum, if we want to run some code only if
+# this file is run directly and not when being sourced into another
+# file/script. We do this by checking if we are able to use 'return' here i.e the current shell.
+# Because 'return' keyword is only used inside a function or a sourced 
+# script (which means by using return we say 'stop sourcing' from
+# this point and return back to the caller, don't execute further code)
+
+if !(return 2> error.txt); then
+	# we are being call directly and not sourced
+	say_hello "AKASH"
+	say_hi "KRISHNA"
+fi
+
+
+
+
+
