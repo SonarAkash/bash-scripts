@@ -1,0 +1,48 @@
+#!/bin/bash
+
+
+# return keyword is used to define the status code of 
+# the function
+
+# In general programming languages like Java, Js, Python
+# we usually return some value from the function using
+# 'return' keyword but here in bash we can't do that
+# because 'return' is used for status code. But there is a
+# different way of capturing something from a function, which
+# is by using 'command substitution'. Yes that is right command
+# sustitution is used to capture the output of function/program/command
+
+
+my-fun(){
+	echo "This goes to std output" >&1
+	echo "This goes to std error"  >&2
+	return 0 # '0' means success and everything else from [1, 255] is failure
+}
+
+output=$(my-fun 2> /dev/null)
+# here in the above cmd we execute my-fun and then point std error to null file,
+# therefore the 2nd echo statment is not printed to the terimal (where std out is currently pointing)
+status_code=$?
+echo -e "output=$output, status code=$status_code \n"
+
+output=$(my-fun 2>&1)
+# here we redirec the std error to std output, therefore the 2nd
+# echo statment in the function will appear on the screen
+status_code=$?
+echo -e "output=$output, status code=$status_code \n"
+
+output=$(my-fun 2>&1 1>/dev/null)
+# here we Redirect stderr to wherever stdout is right now (which is terminal, so now it's fixed) and
+# then redirect stdoutput to null so effectively stderr -> terminal and stdoutput -> null
+# stdout is discarded → command substitution captures nothing.
+# stderr still points to terminal → error prints on screen
+status_code=$?
+echo -e "output=$output, status code=$status_code \n"
+
+output=$(my-fun 1>/dev/null 2>&1)
+# here we Redirect stdoutput to null and then stderror to whatever stdoutput is right now (which is null)
+# Now the order is:
+# stdout → /dev/null
+# stderr → stdout → /dev/null, and nothing is printing now and command substitution captures nothing.
+status_code=$?
+echo -e "output=$output, status code=$status_code \n"
