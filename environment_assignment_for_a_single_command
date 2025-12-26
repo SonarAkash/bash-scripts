@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Here we can use new way of defining and using the variable for that specific command.
+# the syntax is (var2=val1 var2=val2 ... command arg1 arg2 ...) -> and the variables will only be
+# defined for that particular command and will be destroyed or retain there previous values.
+
+while IFS= read -r name; do
+	echo "name : $name"
+done < ./random_names
+
+# Here IFS is set to nothing therefore after reading the line from the file 'read' won't split words
+# and read the exact line. -r help to avoid interpreting '\' as backslach character and retain them.
+
