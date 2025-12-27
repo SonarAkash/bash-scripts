@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+# To iterate on string, extract substring from i and take only 1 char
+
+line="this is a line"
+
+for((i=0; i<"${#line}"; i++)); do
+	echo "char : ${line:i:1}"
+done
