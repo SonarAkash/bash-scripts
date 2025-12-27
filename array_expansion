@@ -1,0 +1,29 @@
+#!/bin/bash
+
+arr=(for bar baz bat)
+
+# * operator is used to join all the elements with the first character in IFS
+(
+
+	IFS='=_'
+	# output -> foo=bar=baz=bat
+	echo "Transformed array : ${arr[*]}"
+	
+	# here since we don't quotes around the parameter expansion, the '*' operator first
+	# joins elements by '=' and then again split's the whole string 'foo=bar=baz=bat' by '='
+	# hence we get 'foo bar baz bat'
+	echo ${arr[*]}
+	
+	# if we want to iterate and want individual elements of array, alwasy use '@'
+	array=(foo "bar baz" bat)
+	echo "with * : ${array[*]}"
+	echo "with @ : ${array[@]}"
+	# ouput -> 
+	# with * : foo=bar baz=bat
+	# with @ : foo bar baz bat, here bar baz is one element
+
+	
+)
+
+
+echo "subarray from 1 to n : ${arr[@]:1}"
