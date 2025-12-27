@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Below is how you make it neccessary to give args, if you don't default 'Akash' will be set
+name=${1:-Akash}
+echo "name : $name"
+
+# Now the below syntax will force user to enter surname as args (Note : it will also take empty string)
+surname=${2?'Plz enter surname as args'}
+echo "surname (empty string acceptable): $surname"
+
+# To avoid empty string use this syntax
+surname=${3:?} # prompt is optional
+echo "surname (without empty string acceptable): $surname"
+
+
+
+
